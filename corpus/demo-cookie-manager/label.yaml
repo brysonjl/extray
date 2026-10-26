@@ -1,0 +1,22 @@
+sample_id: demo-cookie-manager
+kind: benign
+base_ref: null
+injected_pattern_id: null
+# Schema worked example rates this extension "concerning" for cookies + <all_urls>,
+# so the FP-trap is behavioral, not a clean tier: clearing means emitting NO
+# behavioral high-severity finding, even though broad-permission "concerning" is fine.
+expected_tier: concerning
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager"
+  version: "1.0.0"
+must_detect: []
+# benign-only fields:
+cleared: true                 # "cleared" = analyzer emits no behavioral high-severity finding
+must_not_emit:
+  - "data-exfiltration high-severity"
+  - "code-execution high-severity"
+notes: >
+  The scary-permissions / benign-behavior false-positive trap. An analyzer that
+  rates this "concerning" because of cookies + <all_urls> is correct; only a
+  behavioral high-severity finding (exfil, code execution) counts as a false alarm.

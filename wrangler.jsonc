@@ -1,0 +1,56 @@
+// Portable Cloudflare deployment template for ExtRay.
+// Configure your own D1 database, Access application and optional custom domain.
+// Do not commit operator configuration; use a private deployment checkout or
+// an ignored wrangler.production.jsonc with `wrangler --config wrangler.production.jsonc`.
+// See docs/hosting.md.
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ext-ray",
+	"main": "src/server/worker.ts",
+	"compatibility_date": "2026-07-01",
+	// Add your own Access-protected route before deploying. No public entry point
+	// is enabled by this template.
+	"workers_dev": false,
+	"preview_urls": false,
+	"dev": {
+		"host": "127.0.0.1"
+	},
+	"vars": {
+		// Replace with your own Access application values in private configuration.
+		// Store ADMIN_EMAILS with `wrangler secret put ADMIN_EMAILS`.
+		"ACCESS_TEAM": "your-access-team",
+		"ACCESS_AUD": "your-access-application-audience",
+		// Rolling 24h submission cap per authenticated caller (src/server/app.ts).
+		"SUBMISSION_DAILY_LIMIT": "20"
+	},
+	"assets": {
+		"directory": "web/explorer/dist",
+		// SPA fallback: client routes (/ext/:id, /submit) serve index.html…
+		"not_found_handling": "single-page-application",
+		// …but the API always reaches the Worker script, never asset matching.
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "ext-ray",
+			// Replace with your own D1 ID for deployment; local dev uses SQLite.
+			"database_id": "00000000-0000-0000-0000-000000000000"
+		}
+	],
+	"r2_buckets": [
+		{
+			// Evidence-referenced source files for the code viewer, keyed
+			// "<source_dir>/<relPath>" (src/server/source-r2.ts). Create with
+			// `npx wrangler r2 bucket create ext-ray-source`; populate with
+			// `npm run explorer:r2:upload` (scripts/upload-source-r2.ts).
+			"binding": "SOURCE",
+			"bucket_name": "ext-ray-source"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
+}

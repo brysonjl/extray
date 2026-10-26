@@ -1,0 +1,8 @@
+{
+  "rootFiles": [".env.example", ".gitignore", "LICENSE", "NOTICE", "README.md", "SECURITY.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md", "package.json", "package-lock.json", "tsconfig.json", "vitest.config.ts", "wrangler.jsonc"],
+  "sourceDirectories": ["src", "scripts", "test", "corpus", "web", ".github", "ops", "skills"],
+  "excludedDirectories": ["web/explorer/handoff"],
+  "excludedFiles": ["scripts/smoke-pi-large-files.ts", "scripts/run-e2.ts", "scripts/audit-e1.ts", "scripts/talk-stats.ts", "scripts/verdict-replay.ts", "test/run-e2.test.ts", "test/audit-e1.test.ts", "test/talk-stats.test.ts"],
+  "documentation": ["README.md", "analysis.md", "methodologies.md", "configuration.md", "explorer.md", "evaluation.md", "contributing.md", "operations.md", "hosting.md", "releasing.md", "architecture.md", "static-analysis.md", "risk-report-schema.md", "analysis-dag.md", "dag-methodology.md", "agentic-methodology.md", "analysis-robustness.md", "large-bundle-access.md", "portable-skill.md", "bakeoff-db.md", "ground-truth-protocol.md", "corpus-build-loop.md", "methodology-comparison-loop.md", "methodology-improvement-playbook.md", "ops/runner.md"],
+  "documentationDirectories": ["assets"]
+}

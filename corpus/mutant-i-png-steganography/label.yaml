@@ -1,0 +1,13 @@
+sample_id: mutant-i-png-steganography
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: I
+expected_tier: high-risk
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager+I"
+  version: "1.0.0"
+must_detect:
+  - "a bundled image asset is read at runtime as data rather than displayed, and its hidden contents supply the network destination"
+  - "cookie values are sent to an external host whose address is concealed outside the extension's scripts (it never appears as a string in any script)"
+notes: "Isolated pattern I — binary-asset abuse. The exfil endpoint is base64'd behind a CFG1 marker appended past the IEND chunk of img/icon_128x128.png; the PNG still decodes and renders normally (all chunk CRCs valid). js/background.js reads it via fetch(chrome.runtime.getURL(...)) -> arrayBuffer() -> latin1 decode -> atob. Defeats any string-literal scan of the JS. Tests the Layer-5 blind spot: resources are inventoried, but nothing correlates 'resource fetched as bytes' with 'file is a declared image'."

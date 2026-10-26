@@ -1,0 +1,227 @@
+/* Bake-off dashboard styling. Deliberately minimal and legible: system font,
+   a neutral light palette, sticky table headers, monospace for ids/tiers.
+   No external fonts or assets so it renders offline. */
+
+:root {
+  --bg: #fbfbfa;
+  --panel: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #6b6b70;
+  --line: #e3e3e0;
+  --accent: #2557a7;
+  --row-hover: #f0f4fa;
+  --warn-bg: #fdecec;
+  --warn-ink: #a31515;
+  --good-bg: #e8f6ec;
+  --good-ink: #1c7a3a;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+header h1 { font-size: 18px; margin: 0; }
+header .sub { color: var(--muted); font-size: 13px; }
+code { font-family: var(--mono); }
+
+nav#tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 16px 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+nav#tabs button {
+  border: 1px solid transparent;
+  border-bottom: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
+nav#tabs button:hover { color: var(--ink); }
+nav#tabs button.active {
+  color: var(--ink);
+  background: var(--bg);
+  border-color: var(--line);
+  font-weight: 600;
+}
+
+main { padding: 16px 20px 48px; }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.filters label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.filters select, .filters input {
+  font: inherit;
+  padding: 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--panel);
+  color: var(--ink);
+}
+.hint { color: var(--muted); font-size: 13px; }
+
+.table-wrap { overflow: auto; max-height: calc(100vh - 220px); border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+thead th {
+  position: sticky;
+  top: 0;
+  background: #f4f4f2;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+  z-index: 1;
+}
+thead th.sortable { cursor: pointer; user-select: none; }
+thead th.sortable:hover { color: var(--accent); }
+tbody td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr.clickable { cursor: pointer; }
+tbody tr.clickable:hover { background: var(--row-hover); }
+
+.mono { font-family: var(--mono); font-size: 12px; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+/* inline-block so max-width/overflow actually apply (they're ignored on inline
+   spans) — otherwise a long nowrap cell stretches its table off-screen. */
+.truncate { display: inline-block; vertical-align: bottom; max-width: 360px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* full-content cells (report-detail Detail / call-sites): wrap instead of clip,
+   breaking long unbreakable tokens (paths, urls) so nothing is cut off. */
+.wrap { white-space: normal; overflow-wrap: anywhere; }
+
+.cap-note { color: var(--muted); font-size: 12px; margin: 6px 2px 0; }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+.error { padding: 14px; color: var(--warn-ink); background: var(--warn-bg); border-radius: 8px; }
+
+/* tier / severity chips */
+.chip {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #eee;
+  color: #333;
+  white-space: nowrap;
+}
+.tier-high-risk, .sev-critical, .sev-high { background: var(--warn-bg); color: var(--warn-ink); }
+.tier-concerning, .sev-medium { background: #fff4e0; color: #95590a; }
+.tier-low-risk, .sev-low { background: #eef2f7; color: #34557a; }
+.tier-clean, .sev-info { background: var(--good-bg); color: var(--good-ink); }
+.tier-inconclusive { background: #eee; color: #555; }
+/* Threat-class chips (finding_type). malicious is the loudest; benign reads as clean. */
+.ftype-malicious { background: var(--warn-bg); color: var(--warn-ink); }
+.ftype-vulnerability { background: #fde8ef; color: #9b1c4b; }
+.ftype-unwanted { background: #fff4e0; color: #95590a; }
+.ftype-risky-capability { background: #eef2f7; color: #34557a; }
+.ftype-benign { background: var(--good-bg); color: var(--good-ink); }
+.ftype-unknown { background: #eee; color: #555; }
+.status-used, .status-dynamic { background: #eef2f7; color: #34557a; }
+.status-unused { background: #eee; color: #777; }
+.status-undetermined { background: #fff4e0; color: #95590a; }
+.party-external { background: var(--warn-bg); color: var(--warn-ink); }
+.party-first-party-extension { background: var(--good-bg); color: var(--good-ink); }
+.party-unknown, .party-null { background: #eee; color: #555; }
+
+/* permissions card */
+.refs { margin: 4px 0 0; padding-left: 18px; font-size: 12px; line-height: 1.5; }
+.card a { color: #2862c4; }
+.card a:hover { text-decoration: underline; }
+
+.cell-warn { background: var(--warn-bg); color: var(--warn-ink); font-weight: 600; }
+.cov-good { color: var(--good-ink); }
+.cov-mid { color: #95590a; }
+.cov-low { color: var(--warn-ink); }
+
+/* multiple chips in one cell wrap and space out */
+.chips { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+
+/* cost-basis disclosure + rate card under the rollup */
+.pricing-note { margin: 8px 2px 0; font-size: 12px; display: grid; gap: 6px; }
+
+/* section headings within a panel (Performance has two tables) */
+.section-title { font-size: 15px; margin: 6px 2px 4px; }
+.section-title:not(:first-child) { margin-top: 26px; }
+#panel-performance .hint { display: block; margin: 0 2px 10px; }
+
+/* stat band — headline numbers as tiles */
+.stat-band { display: flex; flex-wrap: wrap; gap: 10px; }
+.stat {
+  flex: 1 1 120px; min-width: 110px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--panel);
+  padding: 10px 12px;
+}
+.stat-val { font-size: 20px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.stat-label { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+/* two-column knob grid in the report detail */
+.kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; }
+.kv-grid h3 { margin: 0 0 8px; }
+@media (max-width: 640px) { .kv-grid { grid-template-columns: 1fr; } }
+
+/* report detail */
+#report-detail { display: grid; gap: 18px; max-width: 1000px; }
+/* let grid items shrink to the column instead of growing to content max-content */
+#report-detail > * { min-width: 0; }
+#report-detail .card { overflow-x: auto; }
+.detail-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.detail-head h2 { margin: 0; font-size: 17px; }
+.back-btn {
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+  padding: 5px 10px; border-radius: 6px; cursor: pointer; font: inherit;
+}
+.back-btn:hover { background: var(--row-hover); }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; font-size: 13px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 14px; }
+.card h3 { margin: 0 0 10px; font-size: 14px; }
+/* A block within a card (e.g. one checked-and-cleared dimension). */
+.finding { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px; }
+.finding h4 { margin: 0 0 6px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+.summary { white-space: pre-wrap; line-height: 1.5; }
+.report-text {
+  white-space: pre-wrap;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  max-height: 520px;
+  overflow: auto;
+  background: #fafafa;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}

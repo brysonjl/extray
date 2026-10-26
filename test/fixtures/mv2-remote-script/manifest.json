@@ -1,0 +1,9 @@
+{
+  "manifest_version": 2,
+  "name": "MV2 Remote Script Fixture",
+  "version": "1.0.0",
+  "description": "Minimal MV2 extension whose background script loads a remote script whitelisted by its CSP.",
+  "background": { "scripts": ["bg.js"], "persistent": true },
+  "content_security_policy": "script-src 'self' https://rs-telemetry-cdn.example; object-src 'self'",
+  "permissions": ["storage"]
+}

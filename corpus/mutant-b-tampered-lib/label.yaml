@@ -1,0 +1,12 @@
+sample_id: mutant-b-tampered-lib
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: B
+expected_tier: high-risk
+is_bellwether: true
+source:
+  id: "synthetic:demo-cookie-manager+B"
+  version: "1.0.0"
+must_detect:
+  - "a vendored library file (lib/jquery-3.3.1.min.js) has been modified from its known-good release and now sends document.cookie to an external host"
+notes: "Isolated pattern B (BELLWETHER) — the classic 'malicious update injects code into jquery.min.js'. Detecting this requires noticing the library diverges from its known release."

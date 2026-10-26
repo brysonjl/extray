@@ -1,0 +1,787 @@
+{
+  "schema_version": 1,
+  "baseline": {
+    "methodology": "monolith",
+    "model": "glm-5.2:cloud",
+    "think": "high",
+    "verifierModel": "gpt-oss:120b",
+    "judgeModel": "minimax-m3.1-flash:cloud",
+    "runs": 1
+  },
+  "recording_receipts_sha256": "e6a2847507a87da03d6c0dd2a497855355b232a1156e8f3339b177c6bd689478",
+  "samples": {
+    "demo-cookie-manager": {
+      "source_sha256": "b323371893d00c7224dbfac353f0bfac8bfefaa883d77cba2e3f8610d8e4168e",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": "408b7d3170f3379732d59a32dd0f2729ebfa37715d01d6f9280ee4335437c65f",
+        "host-enrichment.json": null,
+        "label.yaml": "4f8869f50abb693f091b0d29d3ae32939d02a7259e676704aff928c15eceb7f4"
+      }
+    },
+    "mutant-a-exfil-fetch": {
+      "source_sha256": "55d002f6357ccfd2b7bd9ada3e655ca354fc36cd2d9107b6a11d63a9706eb6ab",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "faed061f7c12aae9602bb5af13505431aa5f0779542af294baddd34882318158"
+      }
+    },
+    "mutant-b-tampered-lib": {
+      "source_sha256": "a91c43869bc3df64f26cea2c3b925943b5f2a10254aae56dbb4591769621096d",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "67bf057bcd91ccfb3a1368dfe0bfdd615e57c726f13988dd63073ff6ebd18de3"
+      }
+    },
+    "mutant-c-obfuscated-decoder": {
+      "source_sha256": "62eff02a6f14392ec2e54f7bfd8ff2c6c7e0e7d6a3d8382093bd0ec4c95d04b4",
+      "source_file_count": 125,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "a62415353e65c16099134c00d99546bbcbb7ca70fa0c6dce8f18a6339ed4922b"
+      }
+    },
+    "mutant-d-wide-externally-connectable": {
+      "source_sha256": "ca344d7c46fab12edf9472ce5fa9caa0e2e885f2fc53dca426aa20d7862d951a",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "aa49f8f1bba55c58d710ec88941f308db6247772e3d76f9cf28234737ba15252"
+      }
+    },
+    "mutant-e-crossfile-flow": {
+      "source_sha256": "940a5731723c8e3819dbc7674b6d811ce96d9ff453a90540d5186eac0945782e",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "8707ccc499573a20341051ebc008df144f80b3b6c8f268e2d1d6983f8159ebd9"
+      }
+    },
+    "mutant-f-stacked-acd": {
+      "source_sha256": "6caf94a8a7d71065bf19114effc740e3d39915928b234aa87d1a9b89d89d774e",
+      "source_file_count": 125,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "374edd92e347d2f3264546341a12c2cf5385e555045ed67619703f71a4594a66"
+      }
+    },
+    "mutant-g-stacked-be": {
+      "source_sha256": "bdc9cb53c771d4eaa437c56bcf5dc1b8ae0156f8659cb6d65245445a2c5776b7",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "7696eb30a8d0d802a99ff9b1c2a6522af38b406ea3af052b4ee730d5ceeb3bcc"
+      }
+    },
+    "mutant-h-curveball-clipboard": {
+      "source_sha256": "ae14edab87e8f36bcdadeca375e953645b78f16b2ddc004258f9994ad32914d5",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "b9e234384f5d24a60c0da49311e1e548a1239c654cc42acad2e846aa76044b61"
+      }
+    },
+    "mutant-i-png-steganography": {
+      "source_sha256": "2a04f21bbf6de406fae8a9e79a3c156e7e988df5d670baf5563f92eb48c3a5e3",
+      "source_file_count": 124,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": "bc1a19c3bfe3b8d9cf7c50d7ba64b5413db6215bdfc1ea1b72251715fcf6f8c4",
+        "host-enrichment.json": null,
+        "label.yaml": "636426ca21d34fa9401b185506fdc7419f00b1f94c1eedd5125fee929ba75a96"
+      }
+    },
+    "mutant-j-png-stego-obfuscated": {
+      "source_sha256": "cae314aa773f9ae84d8798b041589976ab79be9f9899904af328a631211163f6",
+      "source_file_count": 125,
+      "inputs": {
+        "developer-listing.json": null,
+        "extension.developer-listing.json": null,
+        "extension.fixture.json": "997ed5bf6d7a47a1903ce3f066b089daf1a00073cab870c725b79810676c4530",
+        "extension.host-enrichment.json": null,
+        "host-enrichment.json": null,
+        "label.yaml": "5248377e73a4634c5161914425926fef948088bf6b7cb0856fc7fabdc571ba4e"
+      }
+    }
+  },
+  "fixtures": {
+    "judge-must_detect-06adc09ee001f27e.json": {
+      "sha256": "80a8525e0ab85858e91b9cddcb94a62fee1922d1f65d4768037af78b9273799a",
+      "request_sha256": "06adc09ee001f27e4416b2386c697ccf968f5043295eea9b686fab22b4689d61",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "judge-must_detect-2a3872ad934df213.json": {
+      "sha256": "7584ed2b02fcc9f571f9619b40c4a314f75448f61983549c034bfa85230d588c",
+      "request_sha256": "2a3872ad934df2130929bd3a0b51318df4eb5dabe4f37f3f5250726c8959b931",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-a-exfil-fetch"
+      ]
+    },
+    "judge-must_detect-38983daef4e4d483.json": {
+      "sha256": "145fadbd8c9917e47088b4fece27f81b1ff0cd279536f9b13edcac6371c78b11",
+      "request_sha256": "38983daef4e4d4836aa7470736cbbd22ce519314af2164cd9b7dcdf9a3edde24",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-e-crossfile-flow"
+      ]
+    },
+    "judge-must_detect-479583f2a07b1ca8.json": {
+      "sha256": "5d6b3d64fccb0b2899a62ddfb42dcd3dc013a8c0d749480e25e7a005a09a5d74",
+      "request_sha256": "479583f2a07b1ca87d51b475282fb4c7846f1dec8959e2ca5aac9a295754ed22",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-d-wide-externally-connectable"
+      ]
+    },
+    "judge-must_detect-6650124ae0d31650.json": {
+      "sha256": "5587b7f0815085e51bd5f0b04e9991fbe7c680802a0fb6d68c97692ade68ea58",
+      "request_sha256": "6650124ae0d316505e7a14e795f47dbc348f93592ed8e39228cfce2ab4f6ee9e",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "judge-must_detect-68070bbf28ca127b.json": {
+      "sha256": "0beb4058b7a0ee1bef2bdb370fd982e8629fc2cfa910ba88ab9a2b20bb94e0a6",
+      "request_sha256": "68070bbf28ca127bd46b51801f0c183f2f6b6e367299faf0388e289f204f8a9d",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-j-png-stego-obfuscated"
+      ]
+    },
+    "judge-must_detect-8ff7734ccf05dfaf.json": {
+      "sha256": "b773db0bfedeec2281dc10bffad29b9f0c596f0e6f7b6cf2d6c137cf13369e5a",
+      "request_sha256": "8ff7734ccf05dfaf4a41cae861736207908d652a25ae79915b9237b73bc8db9e",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "judge-must_detect-984d418eb8bd837e.json": {
+      "sha256": "1b8a66bd0e6417605ab1f1fc31fe746cc0a0f00083d3939cc2307567d47e3592",
+      "request_sha256": "984d418eb8bd837ea13ccfc147177b2271d64d762792c000bd5a4dbcb3afcf8e",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "judge-must_detect-9ecce53b474296ec.json": {
+      "sha256": "3c5ada6e2448551b04b1053c95c758ab095cb3282fa688a55256c9f9d2bc9005",
+      "request_sha256": "9ecce53b474296ec4349f8cdc93ca516364aa6453a2e96e7aa870afe1981ff15",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "judge-must_detect-a377ff5aa36bc028.json": {
+      "sha256": "a7112edca16c21a1ccf2af694ec956c1411d31437544684104878e19b7ce1ce3",
+      "request_sha256": "a377ff5aa36bc0280267175b606822e4af5eccaa737ba476104b5423c71d951e",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "judge-must_detect-b02677f652b3e6d3.json": {
+      "sha256": "adbd7b2543dcddeb5eb051154dd38db77104f43749a31d2e2d4f0b2418e2c2cb",
+      "request_sha256": "b02677f652b3e6d3a18c53c568a69f9c351a715af6351fd792d491ef211c4c05",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "judge-must_detect-b0930c351b5a6f78.json": {
+      "sha256": "db629458082e622fc201e8ec76cb2deae19c6b2e34b01d6f248e67c3d99ecf21",
+      "request_sha256": "b0930c351b5a6f788ef2bba03a3c48eadbe67cb10b0f246f500b2ddcc900ab43",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "judge-must_detect-bde62b76d2a603c7.json": {
+      "sha256": "70541aefc3a1ee99e17a9b2e51e2e678c88cbdeac5bfe08941036783d4cbffa6",
+      "request_sha256": "bde62b76d2a603c7ef3ef20f5a75d1b935b00e8092fac46d0ba0260e957096fa",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "judge-must_detect-c1786289a0923fa4.json": {
+      "sha256": "d8add290ae8a845f0b0a2a40e4131c2192c270f0a67a0c474493d8390e0c02fe",
+      "request_sha256": "c1786289a0923fa47b7268a953303d345605d6e678d38ab720d9deea978b6353",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-j-png-stego-obfuscated"
+      ]
+    },
+    "judge-must_detect-f73046d4dc8832c5.json": {
+      "sha256": "96f45e20dca84fa0eab6a54c37919d7d214a2bc480c485dee014225eec63a07d",
+      "request_sha256": "f73046d4dc8832c54947519265371f577eec3a5d5c0200869a6ed693e020ba59",
+      "label": "judge:must_detect",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "judge-must_not_emit-9ec5ca6a91bb6cc5.json": {
+      "sha256": "9ee58de76a1541aa59b9df514ddc5cf5c9d789587a5af4e9d4a8c36cf48be891",
+      "request_sha256": "9ec5ca6a91bb6cc5a0481fe6871035f32f34b4b40b33b65cad176d5c3d432506",
+      "label": "judge:must_not_emit",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "demo-cookie-manager"
+      ]
+    },
+    "judge-must_not_emit-abce87deaa6391b6.json": {
+      "sha256": "66a6e894801089676feed8e6c85366b6d6cba08ad0ea9a6ac4dfeae87f69b560",
+      "request_sha256": "abce87deaa6391b6e465dd8f3d981a4c3f0203cf67072a801fb6cf02fb270465",
+      "label": "judge:must_not_emit",
+      "model": "minimax-m3.1-flash:cloud",
+      "used_by": [
+        "demo-cookie-manager"
+      ]
+    },
+    "monolith-0fae6cedd3ecfe50.json": {
+      "sha256": "3122aa78a446dc2c7da53dbbcb59fcc0c1b79cfa71c79bf9d384fe826978170e",
+      "request_sha256": "0fae6cedd3ecfe503b027f7bb7889c641a9dc346349b0edc23dbe45fb1cd9107",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "monolith-183c713ce5765eaf.json": {
+      "sha256": "a759c96b72c5af481acb2d464155ab7d79c9933c90884df8c1b38b7af288e5d9",
+      "request_sha256": "183c713ce5765eaf56d72e789ecaaa2f21f4310220c6dcf9d09c068a08fba47c",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "demo-cookie-manager"
+      ]
+    },
+    "monolith-202a6662c0d99183.json": {
+      "sha256": "05fc87bf2c4755e1ae53140e5cf61697b1187655e88d9a5ff117e68b644567a8",
+      "request_sha256": "202a6662c0d9918310cfe78a34646bb10e63bcadd06c11847dc32a8c69ff4c7e",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "monolith-5e038442f5272e6f.json": {
+      "sha256": "723732d8a6f733253d40c4864b884770b28d47f039a52acb4e7d5607c230d7e7",
+      "request_sha256": "5e038442f5272e6fb506ee384b5a765c79b6e759e4c7f8cbb069daf856a2f2f5",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-j-png-stego-obfuscated"
+      ]
+    },
+    "monolith-72e0ea6b58c1ffc7.json": {
+      "sha256": "73e6365846060544d9401a6ee11c4361e596f47d22e9d1967448ae324ef46e1d",
+      "request_sha256": "72e0ea6b58c1ffc7db36d7efb5c45181eb8017fda24b06447c086e95fd4f7805",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-d-wide-externally-connectable"
+      ]
+    },
+    "monolith-89fa7d753de90ac7.json": {
+      "sha256": "ca0ac07256791f15a375954c1bb77913bc433c2f9697b8fe854900efb94c65c9",
+      "request_sha256": "89fa7d753de90ac7630ffa64ebdd1e5ee45974246b8ea8bbb7b6688c33122215",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "monolith-8ac546583771457f.json": {
+      "sha256": "516e3a502e35c2f68e5a1fb80e7fcefc16a988df6cf2ffd28a3ae01645a67b77",
+      "request_sha256": "8ac546583771457f6f028af0ad1e4f19090182e1c60c92e8b2e1e8e76f020b41",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-a-exfil-fetch"
+      ]
+    },
+    "monolith-925bb2499e55f4e4.json": {
+      "sha256": "550373e9db050f5f498396c9372809939c950755ef707d133e0d16e7ddd749cb",
+      "request_sha256": "925bb2499e55f4e4bb46cb637e1f25252a96243f87b3944909bbd30435164ffc",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "monolith-9e3ed94ea0b99e23.json": {
+      "sha256": "20fee058bdebc644e2ac3dcd5edcfe912c97eb4710fe1163e03b31dd4b5160ae",
+      "request_sha256": "9e3ed94ea0b99e234499626ae83f13e096efd0cf155c8b8141f8b3c2f15e7aff",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "monolith-ad4ddd659a46ad8e.json": {
+      "sha256": "e70af9b8f87f3441696bdafef2d856a9bf47e33ea3638226e918a32a283a3910",
+      "request_sha256": "ad4ddd659a46ad8eea2b99ecbc5313cdf18d4e1b4c5b372c63c38486e07157f0",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "monolith-b1913632825c6917.json": {
+      "sha256": "fd0209b434a08892bc716602338f1e38890797b458b84a394d1294ae8a1825b6",
+      "request_sha256": "b1913632825c69177c38a4c62898e8f5c08c2da39f96ee6cbd525ea2258711cd",
+      "label": "monolith",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-e-crossfile-flow"
+      ]
+    },
+    "synthesize-42a71205de4a6aee.json": {
+      "sha256": "cc5011a77470bfe1d08f7c523715b2af40b47f7d4f0a8cd73d97f92d0e99a015",
+      "request_sha256": "42a71205de4a6aee840522bb4347a896f1d4f65e75e06588fdb2adc2a38cc235",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-d-wide-externally-connectable"
+      ]
+    },
+    "synthesize-58173cbac5e89471.json": {
+      "sha256": "782404a4a19e5afec61322a3d9439b4b0d6978da559594967fa3610550aaaf48",
+      "request_sha256": "58173cbac5e89471645f92afba5f78123c39d96db9d02188e858109ac632c8d0",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "synthesize-82cfe4910c237501.json": {
+      "sha256": "2b1b2aa21ce2e158e4312cfa9eb68da2ae468edab9c01206df4246ef780b5292",
+      "request_sha256": "82cfe4910c237501bb839bc50c21a14eabfea2eb3d04c35bef5139662d853804",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-a-exfil-fetch"
+      ]
+    },
+    "synthesize-8be69d60240aec23.json": {
+      "sha256": "46811584025e97038ad9450749abc0df80bf815a5f08f364867f21c781c76581",
+      "request_sha256": "8be69d60240aec239cca624d1560c235cb845e6a71f8d584c077994dca998bdd",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "synthesize-b9d407b519bf36f9.json": {
+      "sha256": "5ed688a00eb9aeea7b45e65b9d262e999dc15777c17d6b65e6a99955732b5cfb",
+      "request_sha256": "b9d407b519bf36f957c4c9aa27854d5a1e8f83242680c748ab74da2aab867e23",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "synthesize-d39d77a04aa4d0b1.json": {
+      "sha256": "8425971701c595a317d2735382b7e878546e3e574100414b4c9562b42c1b6a40",
+      "request_sha256": "d39d77a04aa4d0b1958913912efc3d2cd7dc08496983b57d5bb5bc1290279658",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-e-crossfile-flow"
+      ]
+    },
+    "synthesize-da9ad0df2cedbe14.json": {
+      "sha256": "095e5ff39b63dea613620bebc1fa9d54f0e40ff673a1c639a811120386dd2310",
+      "request_sha256": "da9ad0df2cedbe14cf8be95540cc07a0debceaba45b9f89b39f709e665599dd0",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "demo-cookie-manager"
+      ]
+    },
+    "synthesize-e5619082be743a39.json": {
+      "sha256": "4ac8976ab542361135d7d03617c4e7627a02d53ab07a3da3b2252d9fa13c0c2f",
+      "request_sha256": "e5619082be743a39722cc1ff2a846b20d8c5fe86ce8a0ff69df304433671da03",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "synthesize-f1607b8ed2dc1241.json": {
+      "sha256": "49fb4aa04cf0eb2d4a68ab282cf2238da9790c839d11157e759ff1398acabb0f",
+      "request_sha256": "f1607b8ed2dc1241bbded6430bab45f5cbededb7282a903b78708fb939aa4081",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "synthesize-fccdd3a6cd8fe7c2.json": {
+      "sha256": "620d3d763d938865e332f52ed34867f355daaf8749385bd5d75d3228179eb23c",
+      "request_sha256": "fccdd3a6cd8fe7c2d2e1e867e721d955f5a9e72d55f6c3c2b8c9e71e08c2bd4a",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-j-png-stego-obfuscated"
+      ]
+    },
+    "synthesize-fd0bc8bc07974db3.json": {
+      "sha256": "03660262edb171c81ff44fbf84b3eade2bae4dd9689980baad4934d5b9039fec",
+      "request_sha256": "fd0bc8bc07974db39fd66815431a63a33bb62f88d6a28ea951e0a210abd12ce2",
+      "label": "synthesize",
+      "model": "glm-5.2:cloud",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "verify-claim-09f18caf0f04b592.json": {
+      "sha256": "2a2f3efff41667106ab5a93f6088a1c10ed3d94525f14bc0b590a337747fd62d",
+      "request_sha256": "09f18caf0f04b5926fc56bcd8ee05221cb1d6d80b8b269024be1f03b309d9d81",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "verify-claim-0a6cbeaaa8c4b2bc.json": {
+      "sha256": "f25f33ec36a5b044fdd6cea11bb29b5a327ff367e23e5bf7278ad12e6c1ad421",
+      "request_sha256": "0a6cbeaaa8c4b2bce62259f0ebde655b872339a06645d9cfb682c187ab7e9a38",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "verify-claim-176b55c5135c309f.json": {
+      "sha256": "ee7fdcaf028353811db4e5ea2a4d97b6d112fa6374c65b1788df479a9a1227a7",
+      "request_sha256": "176b55c5135c309f6ae3ff0839409b5d6e9cea24d1978cbbc3c0d20e871d07fa",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-e-crossfile-flow"
+      ]
+    },
+    "verify-claim-1d7f4091bfff1996.json": {
+      "sha256": "cd2a98474c282c6307e933552392653e180315698a443cbb698af76b17a6ad98",
+      "request_sha256": "1d7f4091bfff19960a62769e0bd0e2db4fd4572e4289b499e0baf98ab52dd1dc",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "verify-claim-23bcab8c68a9a789.json": {
+      "sha256": "5c02607d1f360375d21e6442cd8a40707b437445bc8a3420b730961d603adedf",
+      "request_sha256": "23bcab8c68a9a789e3f3d90c29d09fdb7104cae9f1666b2461c1b66915096949",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "verify-claim-310e88edfebec734.json": {
+      "sha256": "795ab7686f678ef53e07ad94b2cf4f4921ad36fc437ecca790dc1f5413176ee2",
+      "request_sha256": "310e88edfebec7342d4db3b6cb2215c3cd19da4c8a5884042ed472c15768e106",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-a-exfil-fetch"
+      ]
+    },
+    "verify-claim-4c729c8466fba9f7.json": {
+      "sha256": "84c329fcae603a96b3c943e0c3b3b3688afc765451514fe1646cff0315cc8a44",
+      "request_sha256": "4c729c8466fba9f7073c393d764e4a339c321f19d0b18699b2ec48da8b6710f1",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "verify-claim-4d2136c2a514d89b.json": {
+      "sha256": "321d7a21a5073c46469b6284a166a67f6ce0979ea6a309eed5d80dfc88a8f421",
+      "request_sha256": "4d2136c2a514d89bf014f99578cce41f780563296f8e8e94c4a5939f3ce0ffd9",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "verify-claim-502af937b8a18345.json": {
+      "sha256": "f3871545fb3cba3b043e6db1f3bb767f3a36733ffbd6da6e97b2177998d4448d",
+      "request_sha256": "502af937b8a183459695c61d4117c53a9462eafb4d8259b3668f04e03acfc597",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "verify-claim-5f57d3f3ca6cdfb8.json": {
+      "sha256": "7de4a11c150c0869330cf91633ec12e31b90e149498cec4fa057e98f4ddf697d",
+      "request_sha256": "5f57d3f3ca6cdfb84afdecfee7892089ef94af8a275255ca79510e29f8d3776e",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "verify-claim-6a79a8313c3864a3.json": {
+      "sha256": "2446ea55325dbc5b7a553e8f6215ab4994088071851332575b9643ff540e8795",
+      "request_sha256": "6a79a8313c3864a348f6452ec26c212f9bce08474bd61f39f3c3e9f8062e7218",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "verify-claim-6e13cdb3e9aff356.json": {
+      "sha256": "41c434dee5f8f3b8761dcd13b46391621ad3b15ec01b72d75e901c6fbd0516d5",
+      "request_sha256": "6e13cdb3e9aff356e2eca2a6785ad66347bc99a755affd33f33a28aadbbbc2c4",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "verify-claim-72bb55a50612fb6a.json": {
+      "sha256": "8492af45031cf0dbcb96301115d751c73a03b762ddeeca4f524df8c8ede5ca2f",
+      "request_sha256": "72bb55a50612fb6a9f7e73693f3cbebe160155d385d20cd380e3659dc14458e8",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-f-stacked-acd"
+      ]
+    },
+    "verify-claim-73103993a308486d.json": {
+      "sha256": "fedccc9b452a10842df033a5a4ff12d1dd74f6aac98810798ed839d03e25df0f",
+      "request_sha256": "73103993a308486d24b47d9e1dd0abbd64aaeee5cef8d997b156d2b47d8b68e1",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "verify-claim-7b25f13495c21dd9.json": {
+      "sha256": "6e5c51457d0627d73271e9b451feeff94825b66f5ad4e3ca4b616609105a6793",
+      "request_sha256": "7b25f13495c21dd92415d6d25a489ccff48ed0e01d5d52a1734efc72b8514781",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "verify-claim-81f8f0f03b97f90d.json": {
+      "sha256": "e62e7de6666eb668067b7da91ef34c3fa8143c97b2f92e22c668eef6078568f9",
+      "request_sha256": "81f8f0f03b97f90d6dba695a57bcb8f8c73e8b85524eae7c348eed437673f64f",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "verify-claim-8b274ff28699288a.json": {
+      "sha256": "1d114d5f7020f95674f0223d2b50c0e534f58f624111e254cb8fa6232940f9b5",
+      "request_sha256": "8b274ff28699288aed60e68af273a106479f0588590d5b653da059dfb68255f2",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "verify-claim-8c65fdaf3383227c.json": {
+      "sha256": "c7421c677f02c350257c840adad2d7a287deda44bbfa97f7635c13c5b537833b",
+      "request_sha256": "8c65fdaf3383227c3d24331f8514382a6362e3a41ee869653fa8df9ff62faa9b",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-b-tampered-lib"
+      ]
+    },
+    "verify-claim-9b7414bda9dc8623.json": {
+      "sha256": "58ba4a8caaf22d715a608610ef6c2a03ee3a36967cc4d0fefbbfafb24f767a24",
+      "request_sha256": "9b7414bda9dc8623a84d9d8955db99916ba6853cdf6ce05c338277d11289abc3",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-j-png-stego-obfuscated"
+      ]
+    },
+    "verify-claim-9c44cf5d331167da.json": {
+      "sha256": "5eb0fbb572f51cc38ec74afca9e06a3bf121bd09a664acc13b4d7f6a5eb0a7c8",
+      "request_sha256": "9c44cf5d331167dade014108e4d62ccbbd8da1c29777d5c8b115f2207308537b",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-d-wide-externally-connectable"
+      ]
+    },
+    "verify-claim-9dd9af049fc6035c.json": {
+      "sha256": "03d40e35843c21dad539b6986c7931c1e10174b0e055a310d1066de928e73d72",
+      "request_sha256": "9dd9af049fc6035c011542d9467833cbca104cebc379692549b9f40860d862ef",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "verify-claim-9e7f7badcf95bd94.json": {
+      "sha256": "11c5392f45c0cf66cb71eead3d32321cd5bb3aca9a19ee9ad28980e24a4d0990",
+      "request_sha256": "9e7f7badcf95bd94203a524bf761f56bd295f44d9de283016189a3d24ecf02c8",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-h-curveball-clipboard"
+      ]
+    },
+    "verify-claim-a8b7d433f540357d.json": {
+      "sha256": "9276e646766124370c2e8139c38505126ec57bfd4b50d2dd5d1639f412c2dbbc",
+      "request_sha256": "a8b7d433f540357df4b17bd8daaa676c9880a3817e13b2ad9a9a9a81b7d3ee2a",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-g-stacked-be"
+      ]
+    },
+    "verify-claim-b6cc676737be70e8.json": {
+      "sha256": "735ca19b8c3dbad0b5b7bc8da9b75aa6df142afb1b67d2f0f29f231a3932e76a",
+      "request_sha256": "b6cc676737be70e8dd65e42ca278b3f213edfc3180517a832a6ba1601f04fb50",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "demo-cookie-manager"
+      ]
+    },
+    "verify-claim-bd87b602e6ed2ec3.json": {
+      "sha256": "8154aafad594028cc7241fb90d4e047e241bffa7d9ec3e610b0b70bd11ba5c42",
+      "request_sha256": "bd87b602e6ed2ec3f3f3d17d6e0570591818375115dd1515278c532779e3e67a",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "verify-claim-bdfa11c833cd6fba.json": {
+      "sha256": "44cef093722c7feca5e14f1fc1c647ce31e09824ece434ddfba476fb0c888b34",
+      "request_sha256": "bdfa11c833cd6fba6284e184d55b980237857bc871557368730bbcd1272c16ba",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "demo-cookie-manager"
+      ]
+    },
+    "verify-claim-d47bdbdc272f9094.json": {
+      "sha256": "c7b8f69a38c5325b2cc0d25bbcffbea8b44a44f2bdca77e55c37ad645ca93be1",
+      "request_sha256": "d47bdbdc272f9094c1515f7e03a9adfd324c1cbe59e93bfa9eab513a0631349d",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-c-obfuscated-decoder"
+      ]
+    },
+    "verify-claim-df5fbe7ac6569c0f.json": {
+      "sha256": "de8facf75e9b261a1fbca79dd1c67c4e66977907b2425d3cc9aa838fdac73526",
+      "request_sha256": "df5fbe7ac6569c0f73399bc1e03e12c553d270657f873878115b32a821793589",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-j-png-stego-obfuscated"
+      ]
+    },
+    "verify-claim-e9fee62509eb535f.json": {
+      "sha256": "93b925bbcd632a581d01dcde57ec3c8b83cd6a488ef39446dc2b1015839cfbd5",
+      "request_sha256": "e9fee62509eb535f943fd548c611e07acc9df0dc05e82b8046bf9e566033b79d",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-d-wide-externally-connectable"
+      ]
+    },
+    "verify-claim-eb338a1f78ca5a97.json": {
+      "sha256": "d18227243b04a40146238b082fa0b6b8bc445736ccf40b20a4fd1c16d1fda7c9",
+      "request_sha256": "eb338a1f78ca5a975d4dc677ba9dc163542acc328b29567df95fa86ece637a1e",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-e-crossfile-flow"
+      ]
+    },
+    "verify-claim-ee6c2bacde7b2460.json": {
+      "sha256": "a591a8776812aa74a357e4af2d181985d13adc8ef3011abd585c8f630b4d881e",
+      "request_sha256": "ee6c2bacde7b24606662739d6b327071a34ba4e579b67a5bd26f1a41c66e5618",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-i-png-steganography"
+      ]
+    },
+    "verify-claim-eeb5fac79a85c04b.json": {
+      "sha256": "2f48847c71433b2ef48d5f28aebbf22ef2a08e91142c6c9fa41eb383827490bb",
+      "request_sha256": "eeb5fac79a85c04bae9db59e9bac3291d9d9dc3c883a5e5e537913284fc84137",
+      "label": "verify:claim",
+      "model": "gpt-oss:120b",
+      "used_by": [
+        "mutant-e-crossfile-flow"
+      ]
+    }
+  }
+}

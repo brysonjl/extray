@@ -1,0 +1,12 @@
+sample_id: mutant-d-wide-externally-connectable
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: D
+expected_tier: high-risk
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager+D"
+  version: "1.0.0"
+must_detect:
+  - "any website can message the extension (externally_connectable matches *://*/*) and an unvalidated handler returns all cookies to the caller"
+notes: "Isolated pattern D — widened externally_connectable plus an onMessageExternal handler with no sender validation, exposing cookies to arbitrary web origins."

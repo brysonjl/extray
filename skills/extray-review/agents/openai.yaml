@@ -1,0 +1,4 @@
+interface:
+  display_name: "ExtRay Extension Review"
+  short_description: "Review browser extensions with source evidence"
+  default_prompt: "Use $extray-review to assess this unpacked browser extension and report findings, source evidence, and unresolved coverage."

@@ -1,0 +1,76 @@
+# Dependencies
+node_modules/
+
+# Analyzer + LLM caches (per v0 brief / decisions.md; assess RECORD cache lives here too)
+.cache/
+
+# OS / editor noise
+.DS_Store
+*.log
+
+# Provider credentials (never commit — RECORD path reads keys from env only).
+# The .env.example template is the one exception: it ships with the repo.
+.env
+.env.*
+!.env.example
+*.key
+
+# AI-assistant local config / rules — never share
+.cursor/
+.claude/
+CLAUDE.md
+.context/
+
+# Local Explorer settings — holds the provider API key (src/server/settings-node.ts)
+.extray/
+
+# Run artifacts (all regenerable; real analysis output stays out of the repo)
+.out/
+evidence-pack.json
+scorecard.json
+scorecard.md
+scorecard-*.json
+scorecard-*.md
+corpus/*/evidence-pack.json
+
+# Ad-hoc per-extension report dumps at repo root (manual `--out <id>_<methodology>`
+# runs over real CRXs — contain actual analysis values; default out is .out/reports).
+/*_agentic/
+/*_dag/
+/*_monolith/
+
+# Real-world extensions pulled for assessment — re-fetch with `npm run fetch-crx`
+example_crxs/
+
+# Hand-validation write-ups of real extension reports (local working notes,
+# contain actual analysis values — not for sharing)
+docs/reference/*pie-adblock*
+
+# Testing / working dir
+.tmp/
+
+# Methodology-comparison loop OUTPUT — per-extension gap notes + worklists contain
+# real-extension analysis values (ground-truth verdicts, findings). The reusable
+# tooling + protocol + playbook ARE committed; the analysis output stays local
+# per the sharing policy. Regenerate via the playbook (docs/methodology-improvement-playbook.md).
+docs/methodology-gaps/
+worklists/
+false/
+web/explorer/dist/
+
+# Wrangler local state (dev D1/asset caches) + local-only dev vars
+.wrangler/
+.dev.vars
+
+# Private deployment/runner configuration and release preparation
+wrangler.local.jsonc
+wrangler.production.jsonc
+runner.config.json
+.codex/
+.agents/
+
+# Talk sources and personal scratch are published separately, if desired.
+/scratch_ev.txt
+/docs/browsers-blind-spot*.pptx
+/docs/browsers-blind-spot*.build.js
+/docs/browsers-blind-spot*-review.md

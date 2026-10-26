@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "note": "Policy list, not code — review/replace per deployment.",
+  "countries": ["CN", "RU", "IR", "KP", "BY", "SY", "CU"]
+}

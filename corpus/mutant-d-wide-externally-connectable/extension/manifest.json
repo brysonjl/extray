@@ -1,0 +1,44 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "name": "ExtRay Demo Cookie Manager",
+  "version": "1.0.0",
+  "description": "Cookie manager for viewing and editing browser cookies.",
+  "icons": {
+    "16": "img/icon_16x16.png",
+    "48": "img/icon_48x48.png",
+    "128": "img/icon_128x128.png"
+  },
+  "default_locale": "en",
+  "action": {
+    "default_icon": {
+      "19": "img/icon_19x19.png",
+      "38": "img/icon_38x38.png"
+    },
+    "default_title": "ExtRay Demo Cookie Manager",
+    "default_popup": "popup.html"
+  },
+  "devtools_page": "/devtools/devtools-page.html",
+  "background": {
+    "service_worker": "/js/background.js",
+    "type": "module"
+  },
+  "options_page": "options_main_page.html",
+  "permissions": [
+    "tabs",
+    "cookies",
+    "contextMenus",
+    "unlimitedStorage",
+    "storage",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "minimum_chrome_version": "88",
+  "manifest_version": 3,
+  "externally_connectable": {
+    "matches": [
+      "*://*/*"
+    ]
+  }
+}

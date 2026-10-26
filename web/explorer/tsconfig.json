@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
+    "resolveJsonModule": true,
+    // Mirrors the Vite resolve.alias in vite.config.ts.
+    "paths": {
+      "@jobs/validate": ["../../src/jobs/validate.ts"],
+      "@pi/caveat": ["../../src/methodologies/pi/caveat.ts"],
+      "@llm/model-table": ["../../src/llm/model-table.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}

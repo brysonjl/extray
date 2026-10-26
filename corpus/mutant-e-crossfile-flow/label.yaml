@@ -1,0 +1,12 @@
+sample_id: mutant-e-crossfile-flow
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: E
+expected_tier: high-risk
+is_bellwether: true
+source:
+  id: "synthetic:demo-cookie-manager+E"
+  version: "1.0.0"
+must_detect:
+  - "cookies read in one file are staged into chrome.storage and then sent to an external host from a different file, so the cookie-to-network flow spans files"
+notes: "Isolated pattern E (BELLWETHER) — cross-file flow. js/background.js does cookie read -> chrome.storage.set; js/common-utils.js does chrome.storage.get -> fetch. Neither file shows the full chain; this is the documented static blind spot the bake-off must overcome."

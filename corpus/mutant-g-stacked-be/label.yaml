@@ -1,0 +1,15 @@
+sample_id: mutant-g-stacked-be
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: G
+expected_tier: high-risk
+is_bellwether: true
+source:
+  id: "synthetic:demo-cookie-manager+B+E"
+  version: "1.0.0"
+# One must_detect entry per constituent pattern. Carries a bellwether (B and E
+# are both bellwether patterns), so a total miss here also informs the no-build signal.
+must_detect:
+  - "a vendored library file (lib/jquery-3.3.1.min.js) has been modified from its known-good release and now sends document.cookie to an external host"
+  - "cookies read in one file are staged into chrome.storage and then sent to an external host from a different file, so the cookie-to-network flow spans files"
+notes: "Stacked profile combining bellwether patterns B + E — the two hardest single behaviors together."

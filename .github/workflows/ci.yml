@@ -1,0 +1,41 @@
+# Deployment can only run after these checks succeed for the same commit.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+env:
+  SKIP_DOTENV: "1"
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+      - run: npm ci
+      - run: npm run validate-corpus
+      - run: npm run fixtures:check
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run eval:replay -- --no-db
+      - run: npm run explorer:build
+      - run: npm run release:check
+      - run: npm audit --audit-level=moderate
+
+  deploy:
+    needs: ci
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && vars.ENABLE_CLOUDFLARE_DEPLOY == 'true'
+    uses: ./.github/workflows/deploy.yml
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_DEPLOY_CONFIG: ${{ secrets.CLOUDFLARE_DEPLOY_CONFIG }}

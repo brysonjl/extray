@@ -1,0 +1,13 @@
+sample_id: mutant-j-png-stego-obfuscated
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: J
+expected_tier: high-risk
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager+I+C-style-obfuscation"
+  version: "1.0.0"
+must_detect:
+  - "a bundled image asset is read at runtime as data rather than displayed, and its hidden contents supply the network destination"
+  - "cookie values are sent to an external host whose address is concealed outside the extension's scripts (it never appears as a string in any script)"
+notes: "Adversarial variant of pattern I: the SAME PNG payload, but the decoder in js/_asset_pack.js is obfuscated in mutant-C style (base64 string array + hex identifiers), so the asset path, the CFG1 marker, the text encoding and the URL scheme are all absent as readable strings. Purpose: separate 'the model can READ plain code describing steganography' from 'the model can DETECT concealment'. mutant-i's decoder is self-describing (loadThemeConfig/atob/CFG1) and both LLM arms caught it; this one removes that affordance. Note the byte-level trailing-payload check is code-independent and should still fire, while the literal-getURL correlation should NOT — an intentional, documented degradation from high to medium."

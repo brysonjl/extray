@@ -1,0 +1,61 @@
+# Called only by successful CI for the same commit. This deploys Worker code
+# and static assets; catalog/source synchronization remains a separate action.
+name: Deploy
+
+on:
+  workflow_call:
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        required: true
+      CLOUDFLARE_DEPLOY_CONFIG:
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+      - run: npm ci
+      - run: npm run explorer:build
+      - name: Prepare private deployment configuration
+        env:
+          CLOUDFLARE_DEPLOY_CONFIG: ${{ secrets.CLOUDFLARE_DEPLOY_CONFIG }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from 'node:fs';
+          const raw = process.env.CLOUDFLARE_DEPLOY_CONFIG;
+          if (!raw) throw new Error('Set CLOUDFLARE_DEPLOY_CONFIG to your private Wrangler JSON configuration.');
+          let config;
+          try { config = JSON.parse(raw); }
+          catch { throw new Error('CLOUDFLARE_DEPLOY_CONFIG must be valid JSON.'); }
+          const mask = (value) => {
+            if (typeof value === 'string' && value.length >= 8) {
+              console.log('::add-mask::' + value.replaceAll('%', '%25').replaceAll('\r', '%0D').replaceAll('\n', '%0A'));
+            } else if (value && typeof value === 'object') {
+              for (const child of Object.values(value)) mask(child);
+            }
+          };
+          mask(config);
+          writeFileSync('wrangler.production.jsonc', JSON.stringify(config, null, 2), { mode: 0o600 });
+          NODE
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.production.jsonc
+      - name: Remove private deployment configuration
+        if: always()
+        run: rm -f wrangler.production.jsonc

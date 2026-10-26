@@ -1,0 +1,21 @@
+sample_id: mutant-h-curveball-clipboard
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: H
+expected_tier: concerning
+is_bellwether: false
+is_generalization_probe: true
+source:
+  id: "synthetic:demo-cookie-manager+H"
+  version: "1.0.0"
+must_detect:
+  - "cookie values are exfiltrated through a non-network channel (written to the clipboard and encoded into context-menu items) for an out-of-band reader, using only allowed UI APIs"
+notes: >
+  Curveball / open-world probe. This attack class is deliberately OUTSIDE the
+  static-analysis taxonomy in docs/static-analysis.md: there is no fetch / XHR /
+  WebSocket / sendBeacon / chrome.storage->network sink to flag. It tests whether
+  a methodology generalizes beyond designer-anticipated patterns rather than
+  recognizing a known signal. Expected tier is "concerning" (not high-risk):
+  the channel is real but bandwidth-limited and requires a cooperating page.
+  Detection of H is reported prominently as a generalization signal even though
+  H is non-bellwether (see corpus/grading-ground-truth.md).

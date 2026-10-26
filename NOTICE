@@ -1,0 +1,37 @@
+ExtRay
+Copyright 2026 brysonjl
+
+This product includes software developed by brysonjl
+(https://github.com/brysonjl).
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this software except in compliance with the License. You may obtain a
+copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+This NOTICE file must be included in redistributions, per the Apache License,
+Version 2.0, Section 4(d).
+
+------------------------------------------------------------------------------
+
+Third-party content bundled under `corpus/` (test fixtures, not part of the
+ExtRay source code) retains its own original licenses and is NOT covered by
+the Apache-2.0 grant above. Notably:
+
+  - EditThisCookie (https://editcookie.com/), vendored in `corpus/base/`,
+    `corpus/demo-cookie-manager/`, and each `corpus/mutant-*/extension/` tree as
+    modified, rebranded ExtRay Demo Cookie Manager analysis-target fixtures,
+    is licensed under the GNU General Public
+    License v3.0. See the `License.txt` and `GNU_GPL_V3.txt` files shipped
+    alongside each copy.
+    Attribution and ExtRay's modifications are described in corpus/PROVENANCE.md.
+    Planted harmful behaviors are ExtRay test mutations, not findings against
+    the published upstream extension.
+  - Libraries vendored inside those same fixture trees (jQuery, jQuery UI,
+    tablesorter, jQuery Jeditable) are used under their respective MIT/BSD
+    licenses; Font Awesome Free under its code (MIT), icon (CC BY 4.0), and
+    font (SIL OFL 1.1) terms; Open Sans under the Apache License, Version 2.0.
+
+See corpus/PROVENANCE.md for upstream attribution, modification notices,
+and the inherited package-metadata discrepancy in the fixture snapshots.

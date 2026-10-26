@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "note": "Policy list, not code — review/replace per deployment. CDN/edge-network providers, used to label IP-registration country as infrastructure-front rather than origin when a contacted host resolves through one of these.",
+  "providers": [
+    {
+      "name": "Cloudflare",
+      "cname_suffixes": ["cdn.cloudflare.net", "pages.dev"],
+      "org_patterns": ["cloudflare"],
+      "asns": ["AS13335", "AS209242", "AS203898", "AS132892", "AS133877"]
+    },
+    {
+      "name": "Akamai",
+      "cname_suffixes": ["akamaiedge.net", "edgekey.net", "edgesuite.net", "akamai.net", "akadns.net", "akamaihd.net", "akamaiorigin.net", "akamaized.net"],
+      "org_patterns": ["akamai"],
+      "asns": ["AS20940", "AS16625", "AS12222", "AS16702", "AS35994", "AS39836", "AS34164"]
+    },
+    {
+      "name": "Fastly",
+      "cname_suffixes": ["fastly.net", "fastlylb.net", "edgecompute.app"],
+      "org_patterns": ["fastly"],
+      "asns": ["AS54113", "AS895", "AS394192"]
+    },
+    {
+      "name": "Amazon CloudFront",
+      "cname_suffixes": ["cloudfront.net"],
+      "org_patterns": ["amazon-cf", "amazo-cf"],
+      "asns": ["AS16509", "AS14618"]
+    },
+    {
+      "name": "Google Cloud CDN / Google Frontend (GFE)",
+      "cname_suffixes": ["ghs.googlehosted.com", "appspot.com"],
+      "org_patterns": ["google-cloud-platform"],
+      "asns": ["AS15169", "AS396982", "AS19527", "AS36040", "AS36384"]
+    },
+    {
+      "name": "Microsoft Azure CDN / Azure Front Door",
+      "cname_suffixes": ["azurefd.net", "azureedge.net"],
+      "org_patterns": [],
+      "asns": ["AS8075"]
+    },
+    {
+      "name": "Imperva (Incapsula)",
+      "cname_suffixes": ["incapdns.net"],
+      "org_patterns": ["incapsula", "imperva"],
+      "asns": ["AS19551", "AS62571"]
+    },
+    {
+      "name": "Bunny CDN",
+      "cname_suffixes": ["b-cdn.net"],
+      "org_patterns": ["bunnyway"],
+      "asns": ["AS200325"]
+    },
+    {
+      "name": "KeyCDN",
+      "cname_suffixes": ["kxcdn.com"],
+      "org_patterns": ["proinity"],
+      "asns": ["AS44239"]
+    },
+    {
+      "name": "jsDelivr",
+      "cname_suffixes": ["jsdelivr.net"],
+      "org_patterns": [],
+      "asns": []
+    },
+    {
+      "name": "Vercel",
+      "cname_suffixes": ["vercel-dns.com", "vercel.app"],
+      "org_patterns": ["vercel"],
+      "asns": ["AS922"]
+    },
+    {
+      "name": "Netlify",
+      "cname_suffixes": ["netlify.app", "apex-loadbalancer.netlify.com"],
+      "org_patterns": [],
+      "asns": []
+    },
+    {
+      "name": "CacheFly",
+      "cname_suffixes": ["cachefly.net"],
+      "org_patterns": ["cachefly"],
+      "asns": ["AS30081"]
+    },
+    {
+      "name": "Sucuri",
+      "cname_suffixes": ["sucurifirewall.com", "sucuricloud.com", "sucuridns.com"],
+      "org_patterns": ["sucuri"],
+      "asns": ["AS30148"]
+    },
+    {
+      "name": "Tencent Cloud CDN",
+      "cname_suffixes": ["cdn.dnsv1.com", "dsa.dnsv1.com"],
+      "org_patterns": ["tencent"],
+      "asns": ["AS132203", "AS45090"]
+    },
+    {
+      "name": "Alibaba Cloud CDN",
+      "cname_suffixes": ["kunlunca.com", "kunlunaq.com", "kunlunsl.com", "kunlunap.com", "alikunlun.com", "kunlun.com"],
+      "org_patterns": ["alibaba", "aliyun", "alisoft"],
+      "asns": ["AS45102", "AS24429", "AS37963"]
+    },
+    {
+      "name": "Limelight / Edgio",
+      "cname_suffixes": ["llnwd.net", "edgecastcdn.net", "edgio.link"],
+      "org_patterns": ["limelight", "edgio"],
+      "asns": ["AS22822", "AS23135", "AS23059", "AS23164", "AS25804", "AS26506", "AS27191", "AS37277"]
+    },
+    {
+      "name": "CDN77",
+      "cname_suffixes": ["cdn77.org"],
+      "org_patterns": ["cdn77", "datacamp"],
+      "asns": ["AS60068"]
+    },
+    {
+      "name": "Gcore",
+      "cname_suffixes": ["gcdn.co"],
+      "org_patterns": ["gcore", "g-core labs"],
+      "asns": ["AS199524"]
+    }
+  ]
+}

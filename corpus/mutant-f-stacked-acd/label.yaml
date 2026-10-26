@@ -1,0 +1,16 @@
+sample_id: mutant-f-stacked-acd
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: F
+expected_tier: high-risk
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager+A+C+D"
+  version: "1.0.0"
+# One must_detect entry per constituent pattern so partial detection is
+# distinguishable from full detection.
+must_detect:
+  - "cookie values are read and sent to an external host not tied to the extension's stated purpose (collect.evil-analytics-cdn.invalid)"
+  - "an obfuscated string-array decoder assembles a hidden URL at runtime and sends document.cookie to it"
+  - "any website can message the extension (externally_connectable matches *://*/*) and an unvalidated handler returns all cookies to the caller"
+notes: "Stacked realistic profile combining patterns A + C + D."

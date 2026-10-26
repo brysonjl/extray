@@ -1,0 +1,291 @@
+[
+  {
+    "filename": "judge-must_not_emit-abce87deaa6391b6.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:12.662Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "abce87deaa6391b6e465dd8f3d981a4c3f0203cf67072a801fb6cf02fb270465",
+    "fixtureSha256": "66a6e894801089676feed8e6c85366b6d6cba08ad0ea9a6ac4dfeae87f69b560",
+    "usage": {
+      "inputTokens": 4339,
+      "outputTokens": 162,
+      "wallClockMs": 2443
+    }
+  },
+  {
+    "filename": "judge-must_not_emit-9ec5ca6a91bb6cc5.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:19.199Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "9ec5ca6a91bb6cc5a0481fe6871035f32f34b4b40b33b65cad176d5c3d432506",
+    "fixtureSha256": "9ee58de76a1541aa59b9df514ddc5cf5c9d789587a5af4e9d4a8c36cf48be891",
+    "usage": {
+      "inputTokens": 4339,
+      "outputTokens": 579,
+      "wallClockMs": 6345
+    }
+  },
+  {
+    "filename": "judge-must_detect-2a3872ad934df213.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:20.701Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "2a3872ad934df2130929bd3a0b51318df4eb5dabe4f37f3f5250726c8959b931",
+    "fixtureSha256": "7584ed2b02fcc9f571f9619b40c4a314f75448f61983549c034bfa85230d588c",
+    "usage": {
+      "inputTokens": 3016,
+      "outputTokens": 61,
+      "wallClockMs": 1326
+    }
+  },
+  {
+    "filename": "judge-must_detect-bde62b76d2a603c7.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:23.132Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "bde62b76d2a603c7ef3ef20f5a75d1b935b00e8092fac46d0ba0260e957096fa",
+    "fixtureSha256": "70541aefc3a1ee99e17a9b2e51e2e678c88cbdeac5bfe08941036783d4cbffa6",
+    "usage": {
+      "inputTokens": 4424,
+      "outputTokens": 159,
+      "wallClockMs": 2257
+    }
+  },
+  {
+    "filename": "judge-must_detect-9ecce53b474296ec.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:24.635Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "9ecce53b474296ec4349f8cdc93ca516364aa6453a2e96e7aa870afe1981ff15",
+    "fixtureSha256": "3c5ada6e2448551b04b1053c95c758ab095cb3282fa688a55256c9f9d2bc9005",
+    "usage": {
+      "inputTokens": 4239,
+      "outputTokens": 93,
+      "wallClockMs": 1338
+    }
+  },
+  {
+    "filename": "judge-must_detect-479583f2a07b1ca8.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:27.128Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "479583f2a07b1ca87d51b475282fb4c7846f1dec8959e2ca5aac9a295754ed22",
+    "fixtureSha256": "5d6b3d64fccb0b2899a62ddfb42dcd3dc013a8c0d749480e25e7a005a09a5d74",
+    "usage": {
+      "inputTokens": 3736,
+      "outputTokens": 148,
+      "wallClockMs": 2323
+    }
+  },
+  {
+    "filename": "judge-must_detect-38983daef4e4d483.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:29.886Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "38983daef4e4d4836aa7470736cbbd22ce519314af2164cd9b7dcdf9a3edde24",
+    "fixtureSha256": "145fadbd8c9917e47088b4fece27f81b1ff0cd279536f9b13edcac6371c78b11",
+    "usage": {
+      "inputTokens": 4071,
+      "outputTokens": 147,
+      "wallClockMs": 2410
+    }
+  },
+  {
+    "filename": "judge-must_detect-6650124ae0d31650.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:33.193Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "6650124ae0d316505e7a14e795f47dbc348f93592ed8e39228cfce2ab4f6ee9e",
+    "fixtureSha256": "5587b7f0815085e51bd5f0b04e9991fbe7c680802a0fb6d68c97692ade68ea58",
+    "usage": {
+      "inputTokens": 3963,
+      "outputTokens": 140,
+      "wallClockMs": 2967
+    }
+  },
+  {
+    "filename": "judge-must_detect-f73046d4dc8832c5.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:35.646Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "f73046d4dc8832c54947519265371f577eec3a5d5c0200869a6ed693e020ba59",
+    "fixtureSha256": "96f45e20dca84fa0eab6a54c37919d7d214a2bc480c485dee014225eec63a07d",
+    "usage": {
+      "inputTokens": 3955,
+      "outputTokens": 125,
+      "wallClockMs": 2120
+    }
+  },
+  {
+    "filename": "judge-must_detect-b0930c351b5a6f78.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:36.874Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "b0930c351b5a6f788ef2bba03a3c48eadbe67cb10b0f246f500b2ddcc900ab43",
+    "fixtureSha256": "db629458082e622fc201e8ec76cb2deae19c6b2e34b01d6f248e67c3d99ecf21",
+    "usage": {
+      "inputTokens": 3963,
+      "outputTokens": 49,
+      "wallClockMs": 1048
+    }
+  },
+  {
+    "filename": "judge-must_detect-984d418eb8bd837e.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:38.927Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "984d418eb8bd837ea13ccfc147177b2271d64d762792c000bd5a4dbcb3afcf8e",
+    "fixtureSha256": "1b8a66bd0e6417605ab1f1fc31fe746cc0a0f00083d3939cc2307567d47e3592",
+    "usage": {
+      "inputTokens": 3830,
+      "outputTokens": 196,
+      "wallClockMs": 1880
+    }
+  },
+  {
+    "filename": "judge-must_detect-8ff7734ccf05dfaf.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:41.247Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "8ff7734ccf05dfaf4a41cae861736207908d652a25ae79915b9237b73bc8db9e",
+    "fixtureSha256": "b773db0bfedeec2281dc10bffad29b9f0c596f0e6f7b6cf2d6c137cf13369e5a",
+    "usage": {
+      "inputTokens": 3825,
+      "outputTokens": 175,
+      "wallClockMs": 2144
+    }
+  },
+  {
+    "filename": "judge-must_detect-b02677f652b3e6d3.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:43.778Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "b02677f652b3e6d3a18c53c568a69f9c351a715af6351fd792d491ef211c4c05",
+    "fixtureSha256": "adbd7b2543dcddeb5eb051154dd38db77104f43749a31d2e2d4f0b2418e2c2cb",
+    "usage": {
+      "inputTokens": 4573,
+      "outputTokens": 225,
+      "wallClockMs": 2360
+    }
+  },
+  {
+    "filename": "judge-must_detect-a377ff5aa36bc028.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:30:49.720Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "a377ff5aa36bc0280267175b606822e4af5eccaa737ba476104b5423c71d951e",
+    "fixtureSha256": "a7112edca16c21a1ccf2af694ec956c1411d31437544684104878e19b7ce1ce3",
+    "usage": {
+      "inputTokens": 4103,
+      "outputTokens": 454,
+      "wallClockMs": 5772
+    }
+  },
+  {
+    "filename": "judge-must_detect-06adc09ee001f27e.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:31:00.723Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "06adc09ee001f27e4416b2386c697ccf968f5043295eea9b686fab22b4689d61",
+    "fixtureSha256": "80a8525e0ab85858e91b9cddcb94a62fee1922d1f65d4768037af78b9273799a",
+    "usage": {
+      "inputTokens": 4108,
+      "outputTokens": 1080,
+      "wallClockMs": 10653
+    }
+  },
+  {
+    "filename": "judge-must_detect-68070bbf28ca127b.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:31:03.754Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "68070bbf28ca127bd46b51801f0c183f2f6b6e367299faf0388e289f204f8a9d",
+    "fixtureSha256": "0beb4058b7a0ee1bef2bdb370fd982e8629fc2cfa910ba88ab9a2b20bb94e0a6",
+    "usage": {
+      "inputTokens": 3279,
+      "outputTokens": 217,
+      "wallClockMs": 2839
+    }
+  },
+  {
+    "filename": "judge-must_detect-c1786289a0923fa4.json",
+    "recorded": true,
+    "recordedAt": "2026-10-26T20:31:22.663Z",
+    "provider": "ollama",
+    "endpoint": "https://ollama.com/api/chat",
+    "model": "minimax-m3.1-flash:cloud",
+    "outputReserve": 2048,
+    "retries": 0,
+    "requestSha256": "c1786289a0923fa47b7268a953303d345605d6e678d38ab720d9deea978b6353",
+    "fixtureSha256": "d8add290ae8a845f0b0a2a40e4131c2192c270f0a67a0c474493d8390e0c02fe",
+    "usage": {
+      "inputTokens": 3284,
+      "outputTokens": 1798,
+      "wallClockMs": 18736
+    }
+  }
+]

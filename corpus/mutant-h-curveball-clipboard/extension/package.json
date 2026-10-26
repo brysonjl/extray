@@ -1,0 +1,17 @@
+{
+  "name": "extray-demo-cookie-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=12.6.0"
+  }
+}

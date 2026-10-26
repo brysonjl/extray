@@ -1,0 +1,12 @@
+sample_id: mutant-a-exfil-fetch
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: A
+expected_tier: high-risk
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager+A"
+  version: "1.0.0"
+must_detect:
+  - "cookie values are read and sent to an external host not tied to the extension's stated purpose (collect.evil-analytics-cdn.invalid)"
+notes: "Isolated pattern A — direct cookie exfiltration via fetch in js/background.js."

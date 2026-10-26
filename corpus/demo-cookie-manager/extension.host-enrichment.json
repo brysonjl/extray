@@ -1,0 +1,34 @@
+{
+  "fetched_at": "2026-06-26T22:15:24.734Z",
+  "source": "rdap",
+  "hosts": [
+    {
+      "host": "google.com",
+      "kind": "domain",
+      "lookup_status": "ok",
+      "domain": {
+        "registrable": "google.com",
+        "registrar": "MarkMonitor Inc.",
+        "created": "1997-09-15T04:00:00Z",
+        "updated": "2019-09-09T15:39:04Z",
+        "expires": "2028-09-14T04:00:00Z",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "registrant_org": null,
+        "statuses": [
+          "client delete prohibited",
+          "client transfer prohibited",
+          "client update prohibited",
+          "server delete prohibited",
+          "server transfer prohibited",
+          "server update prohibited"
+        ]
+      },
+      "ip": null
+    }
+  ]
+}

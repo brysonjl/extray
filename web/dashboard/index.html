@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+  Bake-off dashboard — single page, hand-written, no build step, no framework.
+  Loaded by scripts/dashboard.ts. app.js (an ES module) fetches /api/* and renders
+  the tables; style.css does all styling. Works fully offline.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bake-off dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Bake-off dashboard</h1>
+      <span class="sub">read-only explorer for <code>.out/bakeoff.sqlite</code></span>
+    </header>
+
+    <nav id="tabs">
+      <button data-tab="performance" class="active">Performance</button>
+      <button data-tab="runs">Runs</button>
+      <button data-tab="extensions">Extensions</button>
+      <button data-tab="findings">Findings</button>
+      <button data-tab="report" class="report-tab" hidden>Report detail</button>
+    </nav>
+
+    <main>
+      <!-- Performance -->
+      <section id="panel-performance" class="panel">
+        <h2 class="section-title">All assessments</h2>
+        <p class="hint">Every recorded run rolled up per (methodology &times; model) &mdash; covers all arms, not just scored corpus runs.</p>
+        <div id="rollup-table" class="table-wrap"></div>
+
+        <h2 class="section-title">Scorecard metrics</h2>
+        <p class="hint">Most-recent scored corpus run per (methodology &times; model): coverage, tier-recall, unsafe-misses.</p>
+        <div id="performance-table" class="table-wrap"></div>
+      </section>
+
+      <!-- Runs -->
+      <section id="panel-runs" class="panel" hidden>
+        <div class="filters">
+          <label>Kind <select id="runs-kind"></select></label>
+          <label>Methodology <select id="runs-methodology"></select></label>
+          <label>Model <select id="runs-model"></select></label>
+        </div>
+        <div id="runs-table" class="table-wrap"></div>
+      </section>
+
+      <!-- Extensions -->
+      <section id="panel-extensions" class="panel" hidden>
+        <div class="filters">
+          <label>Search <input id="extensions-q" type="search" placeholder="name / id / sample" /></label>
+        </div>
+        <div id="extensions-table" class="table-wrap"></div>
+      </section>
+
+      <!-- Findings -->
+      <section id="panel-findings" class="panel" hidden>
+        <div class="filters">
+          <label>Severity <select id="findings-severity"></select></label>
+          <label>Category <select id="findings-category"></select></label>
+          <label>Type <select id="findings-finding_type"></select></label>
+          <label>Verified
+            <select id="findings-verified">
+              <option value="">any</option>
+              <option value="1">asserted</option>
+              <option value="0">excluded</option>
+            </select>
+          </label>
+          <label>Methodology <select id="findings-methodology"></select></label>
+          <label>Model <select id="findings-model"></select></label>
+        </div>
+        <div id="findings-table" class="table-wrap"></div>
+      </section>
+
+      <!-- Report detail -->
+      <section id="panel-report" class="panel" hidden>
+        <div id="report-detail"></div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

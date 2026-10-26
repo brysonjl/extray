@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- The ExtRay runner daemon, supervised by launchd. launchd ONLY supervises
+     (start at load, restart on exit); all scheduling lives inside the daemon,
+     so moving to a Linux box is one systemd unit (docs/ops/runner.md), not a
+     schedule rewrite.
+
+     Install (see docs/ops/runner.md for the full runbook):
+       sed "s|__REPO__|$(pwd)|g; s|__NODE_BIN__|$(dirname "$(command -v node)")|g" \
+         ops/launchd/org.extray.runner.plist \
+         > ~/Library/LaunchAgents/org.extray.runner.plist
+       launchctl load ~/Library/LaunchAgents/org.extray.runner.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>org.extray.runner</string>
+
+  <key>WorkingDirectory</key>
+  <string>__REPO__</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__REPO__/node_modules/.bin/tsx</string>
+    <string>scripts/runner.ts</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <!-- launchd agents get a minimal PATH; node must be findable for tsx and
+         the wrangler/assess subprocesses the runner spawns. -->
+    <key>PATH</key>
+    <string>__NODE_BIN__:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <!-- Don't flap on a crash loop: wait before restarting. -->
+  <key>ThrottleInterval</key>
+  <integer>60</integer>
+
+  <key>StandardOutPath</key>
+  <string>__REPO__/.out/runner.log</string>
+  <key>StandardErrorPath</key>
+  <string>__REPO__/.out/runner.log</string>
+</dict>
+</plist>

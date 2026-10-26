@@ -1,0 +1,56 @@
+{
+  "fetched_at": "2026-08-22T06:21:12.881Z",
+  "source": "rdap",
+  "hosts": [
+    {
+      "host": "google.com",
+      "kind": "domain",
+      "lookup_status": "ok",
+      "domain": {
+        "registrable": "google.com",
+        "registrar": "MarkMonitor Inc.",
+        "created": "1997-09-15T04:00:00Z",
+        "updated": "2019-09-09T15:39:04Z",
+        "expires": "2028-09-14T04:00:00Z",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "registrant_org": null,
+        "statuses": [
+          "client delete prohibited",
+          "client transfer prohibited",
+          "client update prohibited",
+          "server delete prohibited",
+          "server transfer prohibited",
+          "server update prohibited"
+        ]
+      },
+      "ip": {
+        "network_name": "GOOGLE",
+        "owner_org": "Google LLC",
+        "asn": null,
+        "country": null,
+        "allocated": "2012-05-24T11:40:55-04:00",
+        "ptr": null
+      },
+      "dns_status": "ok",
+      "resolved_addresses": [
+        "142.251.121.139",
+        "142.251.121.102",
+        "142.251.121.113",
+        "142.251.121.101",
+        "142.251.121.138",
+        "142.251.121.100",
+        "2607:f8b0:4023:807::65",
+        "2607:f8b0:4023:807::64",
+        "2607:f8b0:4023:807::71",
+        "2607:f8b0:4023:807::8b"
+      ],
+      "cname_chain": [],
+      "cdn": null
+    }
+  ]
+}

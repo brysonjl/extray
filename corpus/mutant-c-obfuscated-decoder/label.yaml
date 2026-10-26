@@ -1,0 +1,12 @@
+sample_id: mutant-c-obfuscated-decoder
+kind: malicious
+base_ref: demo-cookie-manager
+injected_pattern_id: C
+expected_tier: high-risk
+is_bellwether: false
+source:
+  id: "synthetic:demo-cookie-manager+C"
+  version: "1.0.0"
+must_detect:
+  - "an obfuscated string-array decoder assembles a hidden URL at runtime and sends document.cookie to it"
+notes: "Isolated pattern C — base64 string-array + index decoder in js/_locale_pack.js hides the exfil destination from a naive string scan."

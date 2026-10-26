@@ -1,0 +1,85 @@
+{
+  "name": "extray",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ExtRay \u2014 static + LLM security analysis for Chrome extensions, with a labeled corpus and an eval scorecard.",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "web/explorer"
+  ],
+  "scripts": {
+    "scan": "tsx scripts/scan.ts",
+    "skill:sync": "node --import tsx scripts/sync-skill.ts",
+    "skill:check": "node --import tsx scripts/sync-skill.ts --check",
+    "import-review": "node --import tsx scripts/import-review.ts",
+    "assess": "tsx scripts/assess.ts",
+    "serve": "tsx scripts/serve.ts",
+    "eval": "tsx scripts/scorecard.ts",
+    "eval:replay": "tsx scripts/scorecard.ts --methodology monolith --model glm-5.2:cloud --think high --verifier-model gpt-oss:120b --judge-model minimax-m3.1-flash:cloud",
+    "validate-corpus": "node scripts/validate-corpus.mjs",
+    "analyze": "tsx src/cli.ts",
+    "discover": "tsx scripts/discover.ts",
+    "ollama:usage": "tsx scripts/ollama-usage.ts",
+    "fetch-crx": "tsx scripts/fetch-crx.ts",
+    "fetch-listing": "tsx scripts/fetch-listing.ts",
+    "enrich-hosts": "tsx scripts/enrich-hosts.ts",
+    "analyze-corpus": "tsx scripts/analyze-corpus.ts",
+    "scorecard": "tsx scripts/scorecard.ts",
+    "reports": "tsx scripts/reports.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "backfill-accounting": "tsx scripts/backfill-accounting.ts",
+    "record-truth": "tsx scripts/record-truth.ts",
+    "compare-arms": "tsx scripts/compare-arms.ts",
+    "backfill-catalog": "tsx scripts/backfill-catalog.ts",
+    "dashboard": "tsx scripts/dashboard.ts",
+    "pilot": "tsx scripts/pilot.ts",
+    "explorer": "concurrently --kill-others-on-fail -n api,web -c blue,green \"tsx scripts/serve.ts\" \"npm run dev -w web/explorer\"",
+    "explorer:api": "tsx scripts/serve.ts",
+    "runner": "tsx scripts/runner.ts",
+    "runner:status": "tsx scripts/runner-status.ts",
+    "explorer:build": "npm run build -w web/explorer",
+    "explorer:d1:export": "tsx scripts/export-d1.ts",
+    "explorer:r2:upload": "tsx scripts/upload-source-r2.ts",
+    "explorer:sync": "tsx scripts/sync-explorer.ts",
+    "explorer:drain": "tsx scripts/drain-submissions.ts",
+    "explorer:cf:dev": "npm run explorer:build && wrangler dev --var EXPLORER_DEV_ROLES:1",
+    "explorer:cf:deploy": "npm run explorer:build && wrangler deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "fixtures:check": "node --import tsx scripts/validate-llm-fixtures.ts",
+    "release:check": "node scripts/prepare-release.mjs --check",
+    "release:prepare": "node scripts/prepare-release.mjs"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.29.7",
+    "@babel/traverse": "^7.29.7",
+    "@earendil-works/pi-coding-agent": "1.4.0",
+    "@hono/node-server": "^1.19.17",
+    "ajv": "^8.20.0",
+    "commander": "^14.0.3",
+    "fflate": "^0.8.3",
+    "hono": "^4.13.14",
+    "jose": "^6.2.3",
+    "typebox": "^1.1.38",
+    "yaml": "^2.4.0",
+    "@earendil-works/pi-ai": "1.4.0"
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.28.0",
+    "@types/node": "^25.9.1",
+    "concurrently": "^9.2.5",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.153.0"
+  },
+  "license": "Apache-2.0",
+  "overrides": {
+    "@earendil-works/pi-coding-agent": {
+      "undici": "^8.12.2"
+    }
+  }
+}

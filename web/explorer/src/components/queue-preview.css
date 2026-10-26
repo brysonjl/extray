@@ -1,0 +1,31 @@
+.workspace-nav a { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.queue-nav-count { border: 1px solid var(--accent-deep); border-radius: 4px; padding: 0 5px; color: var(--accent); font-size: 10px; }
+.queue-preview { margin-bottom: 24px; border: 1px solid var(--accent-deep); border-radius: 10px; overflow: hidden; background: var(--elevated); }
+.queue-preview-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; background: var(--panel); }
+.queue-preview-heading h2 { margin: 0; font: 600 18px/1.4 var(--display); }
+.queue-preview-heading p { margin: 5px 0 0; font-size: 11px; color: var(--muted); }
+.queue-preview-heading .btn { flex-shrink: 0; font-size: 11px; }
+.queue-preview-list { list-style: none; padding: 0; margin: 0; }
+.queue-preview-list li { border-top: 1px solid var(--hairline); }
+.queue-preview-list a { display: grid; grid-template-columns: minmax(0, 1fr) 125px minmax(0, 1fr); gap: 16px; align-items: center; padding: 13px 18px; color: var(--text); }
+.queue-preview-list a:hover { background: var(--panel); text-decoration: none; }
+.queue-preview-identity { min-width: 0; display: grid; gap: 4px; }
+.queue-preview-identity strong { font: 500 13px/1.4 var(--sans); overflow-wrap: anywhere; }
+.queue-preview-identity > span { font-size: 10px; color: var(--muted); overflow-wrap: anywhere; }
+.queue-preview-list .analysis-status { justify-self: start; }
+.queue-preview-reason { font: 12px/1.5 var(--sans); color: var(--muted); overflow-wrap: anywhere; }
+.queue-preview-empty { margin: 0; padding: 18px; color: var(--muted); font: 13px/1.6 var(--sans); border-top: 1px solid var(--hairline); }
+.queue-preview-footer { border-top: 1px solid var(--hairline); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 18px; font-size: 11px; }
+.queue-preview-error { padding: 0 18px 14px; color: var(--muted); font-size: 12px; }
+.queue-preview-error .btn { margin-left: 12px; font-size: 11px; }
+.queue-runtime-help { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; margin: 16px 0; padding: 12px 16px; color: var(--muted); font: 13px/1.6 var(--sans); }
+.queue-runtime-help summary { cursor: pointer; color: var(--soft); font-family: var(--mono); font-size: 12px; }
+.queue-runtime-help p:last-child { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .queue-preview-heading { padding: 14px 12px; gap: 10px; }
+  .queue-preview-heading h2 { font-size: 16px; }
+  .queue-preview-heading .btn { font-size: 10px; padding: 7px; }
+  .queue-preview-list a { grid-template-columns: minmax(0, 1fr) auto; padding: 12px; gap: 8px 12px; }
+  .queue-preview-reason { grid-column: 1 / -1; }
+  .queue-preview-footer { padding: 10px 12px; }
+}

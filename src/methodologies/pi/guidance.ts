@@ -1,0 +1,47 @@
+// Shared investigation guidance for Pi and the portable ExtRay skill.
+// Regenerate the skill references with npm run skill:sync after changing this file.
+
+/** The five risk dimensions every run must account for (finding OR dismissal). */
+export const DIMENSIONS = [
+  "exfiltration",
+  "code-execution",
+  "stated-purpose-deviation",
+  "permission-justification",
+  "obfuscation",
+] as const;
+export type Dimension = (typeof DIMENSIONS)[number];
+
+/** One-line brief telling a shard what its single dimension is responsible for. */
+export const DIMENSION_BRIEF: Record<Dimension, string> = {
+  exfiltration:
+    "Does sensitive data (cookies, history, storage, identity, page/form content) leave to a network or external party? Trace each data-flow and destination in the orientation; confirm in source what is sent and to whom (first- vs third-party).",
+  "code-execution":
+    "Is there eval/Function, remotely fetched scripts, or injected / message-driven code paths? Inspect every script-src / .src= sink and each remote_script_sources host.",
+  "stated-purpose-deviation":
+    "Does it do materially more or other than the manifest / store listing claims? Compare the stated purpose against the observed sinks, permissions, and destinations.",
+  "permission-justification":
+    "Are the requested permissions and host access explained by the stated purpose AND the observed call sites? Map each permission to a real, reachable use; flag any that is unexplained or over-broad.",
+  obfuscation:
+    "Is first-party code obfuscated, packed, minified-to-hide, or otherwise written to conceal what it does? Inspect the obfuscation-flagged files and the opaque regions in the blind-spots list.",
+};
+
+// The remote/dynamic-code classification rules. Shared verbatim by the monolith
+// instruction and the exfiltration / code-execution shards, because the OWA
+// covert-remote-load case is exactly where model choice changes recall.
+export const REMOTE_CODE_RULES = `CLASSIFYING REMOTE OR DYNAMIC CODE (you cannot see remote payloads — classify the LOAD, not the payload):
+- Remote script sources (hosts the CSP permits to load executable code into the extension's privileged pages) and script-src/.src= sinks load code you CANNOT fetch or analyze, so NEVER claim what the payload does — instead classify the act of loading it.
+- For each remote-code load, determine: (a) is the host FIRST-PARTY (the extension's own domain/homepage) or THIRD-PARTY? and (b) is it DISCLOSED to the user — named in the manifest description, the store listing, OR the settings/opt-out text? READ _locales/*/messages.json and the options/settings pages to check disclosure. Watch for the misrepresentation pattern: settings disclose one provider (e.g. Google Analytics) but the code loads ANOTHER, unnamed one.
+- An UNDISCLOSED or misrepresented THIRD-PARTY remote-code load into a privileged context (background/service-worker/extension page) is 'malicious' at high or critical severity: concealing unauditable remote code IS the intent — this is the textbook reason extensions get banned. The disclosure gap, not the payload, is your evidence.
+- A DISCLOSED remote-code load is 'risky-capability' or 'unwanted', not malicious.
+- In every such finding, state explicitly that the remote payload was NOT analyzed (it is unauditable); your claim is about the covert load and the disclosure gap.`;
+
+// Host/URL resolution rule (improvement 020). The generator mis-decoded an
+// obfuscated telemetry host and filled it from branding — it named hotcleaner.com
+// (the homepage, all over the copyright headers and the content-script match)
+// when the code resolves g(9)+g(11)+g(0)+"/upd2" to api64.com. Force a
+// source-grounded resolution and forbid branding-based inference.
+export const HOST_RESOLUTION_RULE = `RESOLVING NETWORK HOSTS AND URLS (do this for every destination you name):
+- When a host or URL is assembled from constants, an array lookup, or a decoder (e.g. g(9)+g(11)+g(0), a "…".split(" ") string table, atob(), String.fromCharCode), RESOLVE it to the concrete value by reading the array/decoder in the source. Do not report the raw expression, and do not guess.
+- Name the host FROM THE CODE. NEVER infer it from the extension's branding, copyright headers, the manifest's first-party domain, or a content-script match — a telemetry/config backend is frequently a blander, different domain than the homepage.
+- If you cannot resolve a host, write "unresolved host" and say why — never substitute a plausible-looking domain.
+- Put the exact source token you resolved from (the concatenation/decoder expression) in evidence_refs.sink_or_string, and the RESOLVED host/URL in the title and detail.`;
